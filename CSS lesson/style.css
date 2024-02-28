@@ -1,0 +1,9 @@
+button:focus{
+    background-color: darkgray;
+    color: blue;
+}
+
+input{
+    color: brown;
+    border-color: blue;
+}

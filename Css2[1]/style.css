@@ -1,0 +1,43 @@
+.main{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 50px; 
+}
+
+.main div{
+    border: 1px solid black;
+    width: 30%;
+    margin-bottom: 100px;
+    height: 140px;
+    background-color: aquamarine;
+}
+
+div:nth-child(2){
+    background-color: crimson;
+}
+
+div:nth-child(3){
+    background-color: lightgreen;
+}
+
+div:nth-child(4){
+    background-color: springgreen;
+}
+
+div:nth-child(5){
+    background-color: coral;
+}
+
+div:nth-child(6){
+    background-color: cadetblue;
+}
+
+.task2{
+    
+}
+
+.tak2 div{
+        
+}
