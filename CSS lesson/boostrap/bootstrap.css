@@ -1,0 +1,51 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+header{
+    
+    height: 72px;
+    line-height: 72px;
+    background-color: black;
+    width: 100%;
+    margin: auto;
+    position: fixed;
+}
+
+.container{
+   
+    margin: auto;
+    width: 98%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.list{
+}
+ul{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+.container a{
+    text-decoration: none;
+    color: white;
+}
+
+h3{
+    font-style: italic;
+    text-align: center;
+}
+h1{
+    font-style: none;
+    text-align: center;
+}
+.yazi{
+    background-image: url("https://startbootstrap.github.io/startbootstrap-agency/assets/img/header-bg.jpg");
+    padding-top: 160px;
+    font-size: xx-large;
+    
+}
+
