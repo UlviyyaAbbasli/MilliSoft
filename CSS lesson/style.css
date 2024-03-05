@@ -1,9 +1,31 @@
-button:focus{
-    background-color: darkgray;
-    color: blue;
+.box{
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+.box .front, .box .back{
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: 1s transform;
 }
 
-input{
-    color: brown;
-    border-color: blue;
+
+
+.box .front{
+    background: blueviolet;
+}
+
+.box .back{
+    background: fuchsia;
+    transform: rotateX(-180deg);
+}
+
+.box:hover .front{
+    transform: rotateX(180deg);
+}
+
+.box:hover .back{
+    transform: rotateX(0deg);
 }
