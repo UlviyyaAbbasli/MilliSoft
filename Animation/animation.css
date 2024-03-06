@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main{
+    width: 40%;
+    height: 500px;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.a{
+    width: 60px;
+    height: 70px;
+    padding: 30px;
+    margin: 100px auto;
+    animation-duration: 0.7s;
+    animation-iteration-count: infinite;
+    background-color: magenta;
+    animation-name: random;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+
+.a1{
+    animation-delay: 0.5s;
+}
+.a2{
+    animation-delay: 0.6s;
+}
+.a3{
+    animation-delay: 0.7s;
+}
+.a4{
+    animation-delay: 0.8s;
+}
+.a5{
+    animation-delay: 0.9s;
+}
+
+@keyframes random{
+    from{
+        transform: scaleY(0.9);
+    }
+    to{
+        transform: scaleY(1.5);
+
+    }
+}
