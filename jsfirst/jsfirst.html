@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+            integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>table</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            #add {
+                background-color: black;
+                font-size: 30px;
+                width: 135px;
+                height: 55px;
+                color: white;
+                border-radius: 5px;
+                margin: 40px;
+            }
+
+            #search {
+                width: 40%;
+                margin: 55px 430px;
+                border-radius: 5px;
+                padding: 10px;
+            }
+
+            #table {
+                margin: auto;
+                width: 70%;
+                height: 60px;
+                text-align: center;
+            }
+
+            .cedvel {
+                position: relative;
+            }
+
+            th {
+                padding: 5px;
+            }
+
+            .modal input {
+                width: 700px;
+                height: 50px;
+                margin-bottom: 30px;
+                border-radius: 5px;
+                padding: 5px;
+            }
+
+            .modal {
+                width: 70%;
+                left: 229px;
+                /* display: flex; */
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                background-color: rgba(85, 76, 76, 0.295);
+                padding: 60px;
+                display: none;
+                position: absolute;
+                top: 0;
+            }
+
+            .button {
+                background-color: rgb(29, 134, 29);
+                width: 100px;
+                height: 50px;
+                border-radius: 5px;
+                color: white;
+                border: none;
+                font-size: 30px;
+            }
+
+            .fa-pen-to-square {
+                color: blue;
+            }
+
+            .fa-trash-can {
+                color: red;
+            }
+        </style>
+    </head>
+
+    <body>
+        <button id="add" type="submit">Add Row</button> <br>
+        <input type="search" name="" id="search" onkeyup="search1()" placeholder="Axtar...">
+        <div class="cedvel">
+            <div class="table">
+                <table id="table" border="1">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>name</th>
+                            <th>surname</th>
+                            <th>age</th>
+                            <th>edit</th>
+                            <th>remove</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body">
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal create">
+                <input id="create_ad" type="text" placeholder="name">
+                <input id="create_soyad" type="text" placeholder="surname">
+                <input id="create_age" type="text" placeholder="age">
+                <button class="bir button" type="submit">create</button>
+            </div>
+            <div class="modal update">
+                <input id="update_ad" type="text" placeholder="name">
+                <input id="update_soyad" type="text" placeholder="surname">
+                <input id="update_age" type="text" placeholder="age">
+                <button class="iki button" type="submit">update</button>
+            </div>
+        </div>
+
+
+        <script>
+
+            let users = [
+                {
+                    id: 1,
+                    name: "ulvia",
+                    surname: "abbasli",
+                    age: "22"
+                }
+            ]
+
+            function data() {
+                $('#body').html('');
+                $.each(users, function (index, item) {
+                    $("#body").append(
+                       `
+                       <tr ID="${item.id}">
+                            <td>${index + 1}</td>
+                            <td>${item.name}</td>
+                            <td>${item.surname}</td>
+                            <td>${item.age}</td>
+                            <td class='td_edit'><i class='fa-solid fa-pen-to-square'></i></td>
+                            <td class='td_remove'><i class='fa-solid fa-trash-can'></i></td>
+                        </tr>
+                       `
+                    )   
+                })
+            }
+
+            data()
+
+
+            let y;
+            $('#body').on('click','.td_edit', function(){
+                $(".update").css('display','flex')
+
+                y = users.find(item => item.id == $(this).parent().attr("ID"))
+
+                $("#update_ad").val(y.name);
+                $("#update_soyad").val(y.surname);
+                $("#update_age").val(y.age);
+            })
+
+            $(".iki").click(function(){
+                y.name = $("#update_ad").val();
+                y.surname = $("#update_soyad").val();
+                y.age = $("#update_age").val();
+                data()
+                $(".update").css('display','none');
+            })
+
+            $("#body").on("click", ".td_remove",function(){
+                let s = users.find(x => x.id == $(this).parent().attr("ID"))
+
+                users.splice(users.indexOf(s),1)
+                data()
+            })
+
+
+            function search1(){
+                let test = $("#body tr")
+                for (let i = 0; i<test.length; i++){
+                    if(test.eq(i).children().eq(1).text().includes($("#search").val())){
+                        test.eq(i).css('display','table-row');
+                    }
+                    else{
+                        test.eq(i).css('display','none');
+
+                    }
+                }
+            }
+
+
+            
+
+
+
+        </script>
+
+
+
+
+        <!-- <script src="table.js"></script> -->
+    </body>
+
+    </html>
+
+</body>
+
+</html>

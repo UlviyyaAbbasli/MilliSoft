@@ -107,6 +107,20 @@
 
 
 
+// let cem=0
+// let say=0
+// let edediorta
+// for(let i = 100; i < 1000; i++){
+//     cem+=i
+//     say++
+// }
+// edediorta = cem/say
+
+// console.log(edediorta)
+
+
+
+
 // var a=Number(prompt("eded daxil edin"));
 // var b=Number(prompt("eded daxil edin"));
 // var c=prompt("riyazi emel daxil edin");
@@ -150,10 +164,25 @@
 
 
 
-for(i=2; i<=j; i++){
-    for(j=2;i++;){
-        if(i%1==0 & i%j==0){
-            console.log(j)
-        }
-    }
-}
+// for(i=2; i<=j; i++){
+//     for(j=2;i++;){
+//         if(i%1==0 & i%j==0){
+//             console.log(j)
+//         }
+//     }
+// }
+
+
+
+
+// for(var i = 0; i <=12; i++){
+//     for(var j = 0; j < i; j++){
+//         if(i+j == 12){
+//             console.log(i,j);
+//         }
+//     }
+// }
+
+
+
+
